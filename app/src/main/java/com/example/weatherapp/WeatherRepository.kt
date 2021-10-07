@@ -7,7 +7,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-private const val API_KEY = "9066c09ddc3162b478a13297677756ac"
+private const val API_KEY = ""
 
 class WeatherRepository {
 
