@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/currentWeatherFragment">
+
+    <fragment
+        android:id="@+id/locationFragment"
+        android:name="com.example.weatherapp.LocationFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_location" />
+    <fragment
+        android:id="@+id/currentWeatherFragment"
+        android:name="com.example.weatherapp.CurrentWeatherFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_current_weather" >
+        <action
+            android:id="@+id/action_currentWeatherFragment_to_locationFragment"
+            app:destination="@id/locationFragment" />
+        <action
+            android:id="@+id/action_currentWeatherFragment_to_weatherDetailsFragment"
+            app:destination="@id/weatherDetailsFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/weatherDetailsFragment"
+        android:name="com.example.weatherapp.WeatherDetailsFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_weather_details" >
+        <argument
+            android:name="temp"
+            app:argType="float" />
+        <argument
+            android:name="description"
+            app:argType="string" />
+        <argument
+            android:name="date"
+            app:argType="long" />
+        <argument
+            android:name="icon"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/weeklyWeatherFragment"
+        android:name="com.example.weatherapp.WeeklyWeatherFragment"
+        tools:layout="@layout/fragment_weekly_weather"
+        android:label="WeeklyForecastFragment" >
+        <action
+            android:id="@+id/action_weeklyWeatherFragment_to_locationFragment"
+            app:destination="@id/locationFragment" />
+        <action
+            android:id="@+id/action_weeklyWeatherFragment_to_weatherDetailsFragment"
+            app:destination="@id/weatherDetailsFragment" />
+    </fragment>
+</navigation>
